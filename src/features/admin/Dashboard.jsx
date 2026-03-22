@@ -12,7 +12,7 @@ export default function Dashboard() {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await api.get('/delivery');
+        const res = await api.get('/deliveries');
         const deliveries = res.data.data;
         let pending = 0; let inTransit = 0; let delivered = 0;
         deliveries.forEach(d => {
@@ -88,7 +88,7 @@ export default function Dashboard() {
                            <Package size={20} weight="fill" />
                          </div>
                          <div>
-                           <p className="font-semibold text-sm text-slate-900 truncate max-w-[200px] md:max-w-[250px]">{delivery.dropoffLocation.address}</p>
+                           <p className="font-semibold text-sm text-slate-900 truncate max-w-[200px] md:max-w-[250px]">{delivery.dropoffLocation?.address || delivery.deliveryAddress || 'Unknown Destination'}</p>
                            <p className="text-xs text-slate-500 mt-0.5 font-medium font-mono uppercase">ID: {delivery.trackingId}</p>
                          </div>
                        </div>

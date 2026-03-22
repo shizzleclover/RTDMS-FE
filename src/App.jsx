@@ -9,6 +9,7 @@ import { useAuth } from './context/AuthContext';
 import AdminLayout from './features/admin/AdminLayout';
 import Dashboard from './features/admin/Dashboard';
 import Deliveries from './features/admin/Deliveries';
+import ManageRiders from './features/admin/ManageRiders';
 import LiveMap from './components/map/LiveMap';
 import RiderDashboard from './features/rider/RiderDashboard';
 
@@ -50,6 +51,7 @@ function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="deliveries" element={<Deliveries />} />
+          <Route path="riders" element={<ManageRiders />} />
           <Route path="map" element={<div className="p-8 space-y-6"><h1 className="text-3xl font-extrabold tracking-tight">Fleet Map</h1><LiveMap /></div>} />
         </Route>
       </Route>

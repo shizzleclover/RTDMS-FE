@@ -68,7 +68,7 @@ export default function TrackDelivery() {
     setError('');
     setDelivery(null);
     try {
-      const res = await api.get(`/delivery/track/${id}`);
+      const res = await api.get(`/deliveries/track/${id}`);
       setDelivery(res.data.data);
     } catch (err) {
       setError(err.response?.data?.error || 'Tracking ID not found in system.');

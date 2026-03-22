@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { Button } from '../../components/ui/button';
-import { SignOut, Package, MagnifyingGlass, MapTrifold, MapPinLine } from '@phosphor-icons/react';
+import { SignOut, Package, MagnifyingGlass, MapTrifold, MapPinLine, List, X } from '@phosphor-icons/react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 
@@ -9,12 +9,13 @@ export default function CustomerDash() {
   const { user, logout } = useAuth();
   const [deliveries, setDeliveries] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchDeliveries = async () => {
       try {
-        const res = await api.get('/delivery');
+        const res = await api.get('/deliveries/my-deliveries');
         setDeliveries(res.data.data);
       } catch (err) {
         console.error('Failed to load my deliveries', err);
@@ -35,11 +36,16 @@ export default function CustomerDash() {
        {/* Standard Minimal Navbar */}
        <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-           <div className="flex items-center gap-2 font-bold text-lg tracking-tight">
-             <div className="bg-sky-500 text-white rounded-md p-1">
-               <Package size={18} weight="fill" />
+           <div className="flex items-center gap-2">
+             <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(true)} className="sm:hidden text-slate-600 hover:bg-slate-100 -ml-2">
+               <List size={24} />
+             </Button>
+             <div className="flex items-center gap-2 font-bold text-lg tracking-tight">
+               <div className="bg-sky-500 text-white rounded-md p-1">
+                 <Package size={18} weight="fill" />
+               </div>
+               RTDMS
              </div>
-             RTDMS
            </div>
            
            <div className="flex items-center gap-4">
@@ -55,6 +61,45 @@ export default function CustomerDash() {
            </div>
          </div>
        </nav>
+
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex sm:hidden">
+          <div className="fixed inset-0 bg-slate-900/60" onClick={() => setIsMobileMenuOpen(false)}></div>
+          <div className="relative flex-1 flex flex-col max-w-[280px] w-full bg-white shadow-xl">
+             <div className="absolute top-4 right-3 z-10">
+               <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-500 h-8 w-8 rounded-full">
+                 <X size={20} weight="bold" />
+               </Button>
+             </div>
+             
+             <div className="h-16 flex items-center px-5 border-b border-slate-200">
+               <div className="flex items-center gap-2.5 font-bold text-[17px] tracking-tight text-slate-900">
+                 <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm"><Package size={18} weight="bold" /></div>
+                 Client Portal
+               </div>
+             </div>
+             
+             <div className="flex-1 overflow-y-auto py-5 px-3 flex flex-col gap-1.5">
+               <div className="px-2 mb-2 text-[11px] font-bold tracking-wider text-slate-400">NAVIGATION</div>
+               <Link to="/customer" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-lg text-[15px] bg-slate-100 text-slate-900 font-semibold"><Package size={20} className="text-slate-500" /> My Deliveries</Link>
+               <Link to="/track" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-lg font-medium text-[15px] text-slate-600 hover:bg-slate-50 hover:text-slate-900"><MagnifyingGlass size={20} className="text-slate-400" /> Track Open ID</Link>
+             </div>
+
+             <div className="p-4 border-t border-slate-200 bg-slate-50">
+               <div className="flex items-center gap-3 px-2 py-2 mb-3">
+                  <div className="h-9 w-9 bg-white border border-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm shadow-sm">{user?.name?.charAt(0) || 'C'}</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold truncate text-slate-900">{user?.name || 'Customer'}</p>
+                    <p className="text-xs text-slate-500 truncate">Customer Workspace</p>
+                  </div>
+               </div>
+               <Button onClick={handleLogout} className="w-full justify-start bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 shadow-sm text-sm font-medium rounded-lg h-10 px-3">
+                  <SignOut size={18} className="mr-2 text-slate-400" /> Sign Out
+               </Button>
+             </div>
+          </div>
+        </div>
+      )}
       
       <main className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full pt-8 sm:pt-12">
         
@@ -112,12 +157,12 @@ export default function CustomerDash() {
                       <div className="absolute left-[3px] top-1.5 w-2 h-2 rounded-full bg-slate-200 border border-slate-300"></div>
                       <div className="absolute left-[6px] top-4 bottom-[-24px] w-px bg-slate-200"></div>
                       <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-0.5">Origin</p>
-                      <p className="font-medium text-sm text-slate-800 leading-snug">{delivery.pickupLocation.address}</p>
+                      <p className="font-medium text-sm text-slate-800 leading-snug">{delivery.pickupLocation?.address || delivery.pickupAddress || 'Unknown Origin'}</p>
                     </div>
                     <div className="relative pl-7">
                       <div className="absolute left-[3px] top-1.5 w-2 h-2 rounded-full bg-sky-500 shadow-sm shadow-sky-500/20"></div>
                       <p className="text-[11px] font-semibold text-sky-600 uppercase tracking-widest mb-0.5">Destination</p>
-                      <p className="font-semibold text-base text-slate-900 leading-snug">{delivery.dropoffLocation.address}</p>
+                      <p className="font-semibold text-base text-slate-900 leading-snug">{delivery.dropoffLocation?.address || delivery.deliveryAddress || 'Unknown Destination'}</p>
                     </div>
                  </div>
 

@@ -13,6 +13,20 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
+  const handleQuickLogin = async (demoEmail, demoPassword) => {
+    setEmail(demoEmail);
+    setPassword(demoPassword);
+    setLoading(true);
+    setError('');
+    const res = await login(demoEmail, demoPassword);
+    setLoading(false);
+    if (res.success) {
+      navigate(res.role === 'admin' ? '/admin' : res.role === 'rider' ? '/rider' : '/customer');
+    } else {
+      setError(res.error);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -80,6 +94,21 @@ export default function Login() {
             <Button type="submit" disabled={loading} className="w-full h-11 bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg shadow-sm transition-colors text-sm mt-2">
               {loading ? <SpinnerGap className="animate-spin text-white" size={20} /> : 'Sign in to workspace'}
             </Button>
+
+            <div className="relative mt-8 mb-6">
+               <div className="absolute inset-0 flex items-center">
+                   <div className="w-full border-t border-slate-200"></div>
+               </div>
+               <div className="relative flex justify-center text-sm">
+                   <span className="bg-white px-2 text-slate-500 font-medium whitespace-nowrap">Testing shortcuts</span>
+               </div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+               <Button type="button" variant="outline" onClick={() => handleQuickLogin('admin@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Admin</Button>
+               <Button type="button" variant="outline" onClick={() => handleQuickLogin('rider@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Rider</Button>
+               <Button type="button" variant="outline" onClick={() => handleQuickLogin('customer@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Customer</Button>
+            </div>
           </form>
 
           <p className="mt-8 text-center text-sm text-slate-500 font-medium">

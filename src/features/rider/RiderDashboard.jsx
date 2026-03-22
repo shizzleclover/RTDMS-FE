@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useSocket } from '../../context/SocketContext';
 import { Button } from '../../components/ui/button';
-import { SignOut, Crosshair, MapPin, Package, CheckCircle, NavigationArrow } from '@phosphor-icons/react';
+import { SignOut, Crosshair, MapPin, Package, CheckCircle, NavigationArrow, List, X, Moped } from '@phosphor-icons/react';
 import api from '../../services/api';
 
 export default function RiderDashboard() {
@@ -11,6 +11,7 @@ export default function RiderDashboard() {
   const [task, setTask] = useState(null);
   const [tracking, setTracking] = useState(false);
   const [watchId, setWatchId] = useState(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     fetchMyTask();
@@ -19,7 +20,7 @@ export default function RiderDashboard() {
 
   const fetchMyTask = async () => {
     try {
-      const res = await api.get('/delivery');
+      const res = await api.get('/deliveries/rider-deliveries');
       const mine = res.data.data.filter(d => 
         d.rider?._id === user._id && d.status !== 'delivered'
       );
@@ -35,7 +36,7 @@ export default function RiderDashboard() {
 
   const updateStatus = async (newStatus) => {
     try {
-      await api.put(`/delivery/${task._id}/status`, { status: newStatus });
+      await api.put(`/deliveries/${task._id}/status`, { status: newStatus });
       setTask({ ...task, status: newStatus });
       
       if(newStatus === 'delivered' && tracking) {
@@ -96,6 +97,46 @@ export default function RiderDashboard() {
          </div>
        </nav>
 
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 flex sm:hidden">
+          <div className="fixed inset-0 bg-slate-900/60" onClick={() => setIsMobileMenuOpen(false)}></div>
+          <div className="relative flex-1 flex flex-col max-w-[280px] w-full bg-white shadow-xl">
+             <div className="absolute top-4 right-3 z-10">
+               <Button variant="ghost" size="icon" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-500 h-8 w-8 rounded-full">
+                 <X size={20} weight="bold" />
+               </Button>
+             </div>
+             
+             <div className="h-16 flex items-center px-5 border-b border-slate-200">
+               <div className="flex items-center gap-2.5 font-bold text-[17px] tracking-tight text-slate-900">
+                 <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm"><Package size={18} weight="bold" /></div>
+                 Rider Portal
+               </div>
+             </div>
+             
+             <div className="flex-1 overflow-y-auto py-5 px-3 flex flex-col gap-1.5">
+               <div className="px-2 mb-2 text-[11px] font-bold tracking-wider text-slate-400">OPERATIONS</div>
+               <div onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 px-3 py-3 rounded-lg text-[15px] bg-slate-100 text-slate-900 font-semibold cursor-pointer">
+                  <Moped size={20} className="text-slate-500" /> Task Manifest
+               </div>
+             </div>
+
+             <div className="p-4 border-t border-slate-200 bg-slate-50">
+               <div className="flex items-center gap-3 px-2 py-2 mb-3">
+                  <div className="h-9 w-9 bg-white border border-slate-200 text-slate-600 rounded-full flex items-center justify-center font-bold text-sm shadow-sm">{user?.name?.charAt(0) || 'R'}</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-sm font-semibold truncate text-slate-900">{user?.name || 'Rider'}</p>
+                    <p className="text-xs text-slate-500 truncate">Driver Identity</p>
+                  </div>
+               </div>
+               <Button onClick={logout} className="w-full justify-start bg-white text-red-600 hover:bg-red-50 hover:text-red-700 border border-slate-200 shadow-sm text-sm font-medium rounded-lg h-10 px-3">
+                  <SignOut size={18} className="mr-2 text-red-400" /> End Shift (Log Out)
+               </Button>
+             </div>
+          </div>
+        </div>
+      )}
+
       <main className="px-4 max-w-xl mx-auto w-full pt-6 sm:pt-10">
         
         <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -137,13 +178,13 @@ export default function RiderDashboard() {
                  
                  <div className="relative">
                    <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-0.5">Pickup Location</p>
-                   <p className="font-semibold text-base text-slate-800 leading-snug">{task.pickupLocation.address}</p>
+                   <p className="font-semibold text-base text-slate-800 leading-snug">{task.pickupLocation?.address || task.pickupAddress || 'Unknown Origin'}</p>
                  </div>
                  
                  <div className="relative">
                    <div className="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-sky-500 shadow-sm shadow-sky-500/20 z-10"></div>
                    <p className="text-[11px] font-semibold text-sky-600 uppercase tracking-widest mb-0.5">Dropoff Target</p>
-                   <p className="font-bold text-xl text-slate-900 leading-snug">{task.dropoffLocation.address}</p>
+                   <p className="font-bold text-xl text-slate-900 leading-snug">{task.dropoffLocation?.address || task.deliveryAddress || 'Unknown Destination'}</p>
                  </div>
               </div>
             </div>
