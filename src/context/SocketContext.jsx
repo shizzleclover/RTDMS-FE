@@ -17,7 +17,7 @@ export const SocketProvider = ({ children }) => {
 
     if (user) {
       const token = localStorage.getItem('token');
-      newSocket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
+      newSocket = io(import.meta.env.VITE_SOCKET_URL || 'https://rtdms-be-production.up.railway.app', {
         auth: { token },
         transports: ['websocket', 'polling']
       });
@@ -43,7 +43,7 @@ export const SocketProvider = ({ children }) => {
   // Separate function strictly for unauthenticated customers listening to tracking rooms
   const connectPublicSocket = () => {
     if (!socket) {
-      const publicSocket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
+      const publicSocket = io(import.meta.env.VITE_SOCKET_URL || 'https://rtdms-be-production.up.railway.app', {
         transports: ['websocket', 'polling']
       });
       return publicSocket;
