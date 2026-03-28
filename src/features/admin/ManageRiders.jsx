@@ -23,8 +23,8 @@ export default function ManageRiders() {
     <div className="space-y-6">
        <div className="flex justify-between items-end">
          <div>
-           <h1 className="text-2xl font-bold tracking-tight text-slate-900">Fleet Network</h1>
-           <p className="text-sm text-slate-500 mt-1">Manage active courier dispatchers and observe network capacity.</p>
+           <h1 className="text-2xl font-bold tracking-tight text-slate-900">Delivery Agents</h1>
+           <p className="text-sm text-slate-500 mt-1">Manage active delivery agents and observe network capacity.</p>
          </div>
        </div>
 
@@ -36,7 +36,7 @@ export default function ManageRiders() {
                    <Moped size={24} weight="duotone" />
                 </div>
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-100/50">
-                  Active Driver
+                  Active Agent
                 </span>
               </div>
               

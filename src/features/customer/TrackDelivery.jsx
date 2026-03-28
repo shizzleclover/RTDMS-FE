@@ -107,7 +107,7 @@ export default function TrackDelivery() {
          <div className="w-full max-w-5xl space-y-10">
            
            <div className="text-center space-y-4 max-w-xl mx-auto">
-             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Track Parcel</h1>
+             <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Track Produce</h1>
              <p className="text-base text-slate-500">Enter your tracking ID for live status and location data.</p>
              
              <div className="flex bg-white rounded-lg shadow-sm border border-slate-200 mt-6 h-12 overflow-hidden focus-within:ring-2 focus-within:ring-sky-500/20 focus-within:border-sky-500 transition-shadow">
@@ -177,7 +177,7 @@ export default function TrackDelivery() {
                          <span className="font-mono font-semibold text-slate-900 uppercase">{delivery.trackingId}</span>
                        </div>
                        <div className="flex justify-between items-center text-sm">
-                         <span className="text-slate-500 font-medium">Assigned Rider</span>
+                         <span className="text-slate-500 font-medium">Assigned Agent</span>
                          <span className="font-semibold text-slate-900">{delivery.rider?.name || 'Pending'}</span>
                        </div>
                      </div>

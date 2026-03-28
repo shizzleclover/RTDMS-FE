@@ -61,8 +61,8 @@ export default function AdminLayout() {
                 {user?.name?.charAt(0) || 'A'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold truncate text-slate-900">{user?.name || 'Administrator'}</p>
-                <p className="text-xs text-slate-500 truncate">Admin Workspace</p>
+                <p className="text-sm font-semibold truncate text-slate-900">{user?.name || 'Dispatcher'}</p>
+                <p className="text-xs text-slate-500 truncate">Dispatcher Workspace</p>
               </div>
            </div>
            <Button variant="ghost" onClick={handleLogout} className="w-full justify-start text-slate-600 hover:text-slate-900 hover:bg-slate-100 text-sm font-medium rounded-lg h-10 px-3">
@@ -125,8 +125,8 @@ export default function AdminLayout() {
                     {user?.name?.charAt(0) || 'A'}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold truncate text-slate-900">{user?.name || 'Administrator'}</p>
-                    <p className="text-xs text-slate-500 truncate">Admin Workspace</p>
+                    <p className="text-sm font-semibold truncate text-slate-900">{user?.name || 'Dispatcher'}</p>
+                    <p className="text-xs text-slate-500 truncate">Dispatcher Workspace</p>
                   </div>
                </div>
                <Button onClick={handleLogout} className="w-full justify-start bg-white text-slate-700 hover:bg-slate-100 hover:text-slate-900 border border-slate-200 shadow-sm text-sm font-medium rounded-lg h-10 px-3">
@@ -166,7 +166,7 @@ export default function AdminLayout() {
         {/* Header Ribbon for desktop */}
         <header className="h-16 bg-white border-b border-slate-200 hidden lg:flex items-center px-8 z-10 shrink-0">
            <div className="flex items-center gap-2 text-sm text-slate-500">
-             <Briefcase size={16} /> Workspace <span className="text-slate-300">/</span> <span className="font-medium text-slate-900">Admin</span>
+             <Briefcase size={16} /> Workspace <span className="text-slate-300">/</span> <span className="font-medium text-slate-900">Dispatcher</span>
            </div>
         </header>
 

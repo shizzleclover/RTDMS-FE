@@ -66,7 +66,7 @@ export default function Deliveries() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Delivery Tasks</h1>
-          <p className="text-sm text-slate-500 mt-1">Manage network dispatch and rider assignments.</p>
+          <p className="text-sm text-slate-500 mt-1">Manage network dispatch and delivery agent assignments.</p>
         </div>
         <Button onClick={() => setIsCreateOpen(true)} className="h-10 px-4 rounded-lg bg-slate-900 text-white hover:bg-slate-800 text-sm font-semibold shadow-sm transition-colors flex items-center gap-2">
           <Plus size={16} weight="bold" /> Create Delivery
@@ -88,12 +88,12 @@ export default function Deliveries() {
               </div>
               <div className="p-6 flex-1 overflow-y-auto space-y-5">
                  <div className="space-y-1.5">
-                   <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Customer Client</label>
+                   <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Farmer</label>
                    <select 
                      className="w-full h-11 px-3 bg-slate-50 border border-slate-200 rounded-lg text-sm shadow-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
                      value={formData.customer} onChange={e => setFormData({...formData, customer: e.target.value})}
                    >
-                     <option value="" disabled>Select a customer account...</option>
+                     <option value="" disabled>Select a farmer account...</option>
                      {customers.map(c => <option key={c._id} value={c._id}>{c.name} ({c.email})</option>)}
                    </select>
                  </div>
@@ -115,7 +115,7 @@ export default function Deliveries() {
                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Package Manifest</label>
                    <textarea 
                      className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm shadow-sm placeholder:text-slate-400 focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
-                     placeholder="Electronics, fragile documents..." rows="3"
+                     placeholder="Tomatoes, yams, leafy greens..." rows="3"
                      value={formData.packageDescription} onChange={e => setFormData({...formData, packageDescription: e.target.value})}
                    />
                  </div>
@@ -162,7 +162,7 @@ export default function Deliveries() {
               <div className="col-span-3">Pickup</div>
               <div className="col-span-3">Dropoff</div>
               <div className="col-span-2">Status</div>
-              <div className="col-span-3">Rider Assignment</div>
+              <div className="col-span-3">Agent Assignment</div>
             </div>
 
             {deliveries.map((delivery) => (
@@ -236,7 +236,7 @@ export default function Deliveries() {
                         <div className="h-6 w-6 bg-slate-100 text-slate-500 rounded-md flex items-center justify-center">
                           <Moped size={14} weight="fill" />
                         </div>
-                        <span className="text-sm font-medium text-slate-700 truncate">{delivery.rider?.name || 'Rider Assigned'}</span>
+                        <span className="text-sm font-medium text-slate-700 truncate">{delivery.rider?.name || 'Agent Assigned'}</span>
                       </div>
                     )}
                   </div>

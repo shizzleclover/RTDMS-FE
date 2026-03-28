@@ -45,7 +45,7 @@ export default function Register() {
 
           <div className="mb-8">
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 mb-2">Create workspace</h1>
-            <p className="text-sm text-slate-500 font-medium">Join the logistics network as an admin, rider, or customer.</p>
+            <p className="text-sm text-slate-500 font-medium">Join the farm-to-market network as a farmer, delivery agent, or dispatcher.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-5">
@@ -87,18 +87,18 @@ export default function Register() {
             <div className="space-y-2 pb-2">
               <label className="text-sm font-semibold text-slate-700 block">Role Designation</label>
               <div className="grid grid-cols-3 gap-3">
-                {['customer', 'rider', 'admin'].map((r) => (
+                {[{ value: 'customer', label: 'Farmer' }, { value: 'rider', label: 'Delivery Agent' }, { value: 'admin', label: 'Dispatcher' }].map((r) => (
                   <button
-                    key={r}
+                    key={r.value}
                     type="button"
-                    onClick={() => setRole(r)}
-                    className={`h-11 border rounded-lg text-sm font-semibold capitalize transition-all ${
-                      role === r 
+                    onClick={() => setRole(r.value)}
+                    className={`h-11 border rounded-lg text-sm font-semibold transition-all ${
+                      role === r.value 
                         ? 'bg-slate-900 border-slate-900 text-white shadow-sm' 
                         : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    {r}
+                    {r.label}
                   </button>
                 ))}
               </div>

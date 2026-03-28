@@ -56,7 +56,7 @@ export default function Login() {
 
           <div className="mb-8">
             <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 mb-2">Welcome back</h1>
-            <p className="text-sm text-slate-500 font-medium">Log in to your enterprise workspace.</p>
+            <p className="text-sm text-slate-500 font-medium">Log in to your farm-to-market workspace.</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -105,9 +105,9 @@ export default function Login() {
             </div>
 
             <div className="grid grid-cols-3 gap-3">
-               <Button type="button" variant="outline" onClick={() => handleQuickLogin('admin@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Admin</Button>
-               <Button type="button" variant="outline" onClick={() => handleQuickLogin('rider@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Rider</Button>
-               <Button type="button" variant="outline" onClick={() => handleQuickLogin('customer@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Customer</Button>
+               <Button type="button" variant="outline" onClick={() => handleQuickLogin('admin@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Dispatcher</Button>
+               <Button type="button" variant="outline" onClick={() => handleQuickLogin('rider@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Delivery Agent</Button>
+               <Button type="button" variant="outline" onClick={() => handleQuickLogin('customer@rtdms.com', 'password123')} className="text-xs h-9 border-slate-200 text-slate-600 hover:bg-slate-50 shadow-sm">Farmer</Button>
             </div>
           </form>
 
@@ -140,10 +140,10 @@ export default function Login() {
 
            <div className="space-y-4">
               {[
-                { label: 'Admin Access', desc: 'Full logistical routing control', col: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
-                { label: 'Rider Protocol', desc: 'Secure GPS socket transmission', col: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
-                { label: 'Customer Portal', desc: 'Read-only telemetry tracking', col: 'text-amber-600 bg-amber-50 border-amber-100' }
-              ].map((r, i) => (
+                 { label: 'Dispatcher Access', desc: 'Full logistical routing control', col: 'text-indigo-600 bg-indigo-50 border-indigo-100' },
+                 { label: 'Delivery Agent', desc: 'Secure GPS socket transmission', col: 'text-emerald-600 bg-emerald-50 border-emerald-100' },
+                 { label: 'Farmer Portal', desc: 'Track produce deliveries', col: 'text-amber-600 bg-amber-50 border-amber-100' }
+               ].map((r, i) => (
                 <div key={i} className="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
                   <div className={`text-[10px] font-bold uppercase px-2 py-1 rounded border ${r.col}`}>Valid</div>
                   <div className="flex-1">
