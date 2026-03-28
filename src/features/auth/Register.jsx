@@ -37,7 +37,7 @@ export default function Register() {
         <div className="w-full max-w-md mx-auto py-12">
           {/* Logo */}
           <Link to="/" className="inline-flex items-center gap-2 mb-10 group hover:opacity-80 transition-opacity">
-            <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm">
+            <div className="bg-emerald-600 text-white rounded-md p-1.5 shadow-sm">
               <Package size={20} weight="bold" />
             </div>
             <span className="text-lg font-bold tracking-tight text-slate-900">RTDMS</span>
@@ -55,7 +55,7 @@ export default function Register() {
                 value={name} 
                 onChange={e => setName(e.target.value)} 
                 required 
-                className="h-11 border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 shadow-sm rounded-lg"
+                className="h-11 border-slate-200 focus:border-emerald-600 focus:ring-emerald-600/20 shadow-sm rounded-lg"
                 placeholder="Alexander Doe"
               />
             </div>
@@ -67,7 +67,7 @@ export default function Register() {
                 value={email} 
                 onChange={e => setEmail(e.target.value)} 
                 required 
-                className="h-11 border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 shadow-sm rounded-lg"
+                className="h-11 border-slate-200 focus:border-emerald-600 focus:ring-emerald-600/20 shadow-sm rounded-lg"
                 placeholder="developer@rtdms.com"
               />
             </div>
@@ -79,7 +79,7 @@ export default function Register() {
                 value={password} 
                 onChange={e => setPassword(e.target.value)} 
                 required 
-                className="h-11 border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 shadow-sm rounded-lg" 
+                className="h-11 border-slate-200 focus:border-emerald-600 focus:ring-emerald-600/20 shadow-sm rounded-lg" 
                 placeholder="••••••••"
               />
             </div>
@@ -117,7 +117,7 @@ export default function Register() {
 
           <p className="mt-8 text-center text-sm text-slate-500 font-medium">
             Already have an account?{' '}
-            <Link to="/login" className="text-sky-600 hover:text-sky-700 font-semibold group flex items-center justify-center gap-1 mt-1">
+            <Link to="/login" className="text-emerald-600 hover:text-emerald-700 font-semibold group flex items-center justify-center gap-1 mt-1">
               Sign in securely <CaretRight size={12} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </p>
@@ -136,13 +136,13 @@ export default function Register() {
                 <div className="space-y-4">
                   {[1,2,3,4].map(i => <div key={i} className="h-2 w-full bg-slate-200 rounded-full"></div>)}
                 </div>
-                <div className="mt-auto h-8 w-8 rounded bg-sky-100 text-sky-600 flex items-center justify-center">
+                <div className="mt-auto h-8 w-8 rounded bg-emerald-100 text-emerald-600 flex items-center justify-center">
                    <ChartPieSlice size={16} weight="fill" />
                 </div>
              </div>
              <div className="w-2/3 p-8 flex flex-col justify-center">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-100 text-xs font-bold text-slate-600 mb-6 w-max">
-                  <MapTrifold size={14} className="text-sky-600" weight="fill" /> Telemetry Initialized
+                  <MapTrifold size={14} className="text-emerald-600" weight="fill" /> Telemetry Initialized
                 </div>
                 <h3 className="text-2xl font-black text-slate-900 leading-tight mb-2">Build the network.</h3>
                 <p className="text-sm font-medium text-slate-500 leading-relaxed shadow-sm">

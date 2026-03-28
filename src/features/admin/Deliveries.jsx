@@ -57,7 +57,7 @@ export default function Deliveries() {
 
   if (loading) return (
     <div className="flex items-center justify-center p-12">
-       <div className="w-8 h-8 border-2 border-sky-600 border-t-transparent rounded-full animate-spin"></div>
+       <div className="w-8 h-8 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
 
@@ -90,7 +90,7 @@ export default function Deliveries() {
                  <div className="space-y-1.5">
                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Farmer</label>
                    <select 
-                     className="w-full h-11 px-3 bg-slate-50 border border-slate-200 rounded-lg text-sm shadow-sm focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                     className="w-full h-11 px-3 bg-slate-50 border border-slate-200 rounded-lg text-sm shadow-sm focus:ring-2 focus:ring-emerald-600/20 focus:border-emerald-600"
                      value={formData.customer} onChange={e => setFormData({...formData, customer: e.target.value})}
                    >
                      <option value="" disabled>Select a farmer account...</option>
@@ -100,7 +100,7 @@ export default function Deliveries() {
                  <div className="space-y-1.5">
                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Origin Address</label>
                    <input 
-                     className="w-full h-11 px-3 bg-white border border-slate-200 rounded-lg text-sm shadow-sm placeholder:text-slate-400 focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                     className="w-full h-11 px-3 bg-white border border-slate-200 rounded-lg text-sm shadow-sm placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-600/20 focus:border-emerald-600"
                      placeholder="e.g. 12 Marina, Lagos" value={formData.pickupAddress} onChange={e => setFormData({...formData, pickupAddress: e.target.value})}
                    />
                  </div>
@@ -114,7 +114,7 @@ export default function Deliveries() {
                  <div className="space-y-1.5">
                    <label className="text-xs font-bold text-slate-700 uppercase tracking-wider">Package Manifest</label>
                    <textarea 
-                     className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm shadow-sm placeholder:text-slate-400 focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500"
+                     className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm shadow-sm placeholder:text-slate-400 focus:ring-2 focus:ring-emerald-600/20 focus:border-emerald-600"
                      placeholder="Tomatoes, yams, leafy greens..." rows="3"
                      value={formData.packageDescription} onChange={e => setFormData({...formData, packageDescription: e.target.value})}
                    />
@@ -136,7 +136,7 @@ export default function Deliveries() {
                      } catch(err) { console.error('Create error', err); alert("Failed to create"); }
                      finally { setSubmitLoading(false); }
                    }}
-                   disabled={submitLoading} className="h-10 px-5 text-sm bg-sky-600 hover:bg-sky-700 text-white shadow-sm font-semibold rounded-lg"
+                   disabled={submitLoading} className="h-10 px-5 text-sm bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm font-semibold rounded-lg"
                  >
                    {submitLoading ? 'Creating...' : 'Finalize Dispatch'}
                  </Button>
@@ -218,7 +218,7 @@ export default function Deliveries() {
                     <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2 md:hidden">Assignment</p>
                     {delivery.status === 'pending' ? (
                       <select 
-                        className="w-full h-9 px-3 rounded-md border border-slate-200 bg-white text-slate-900 text-sm shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 cursor-pointer"
+                        className="w-full h-9 px-3 rounded-md border border-slate-200 bg-white text-slate-900 text-sm shadow-sm transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-600/20 focus:border-emerald-600 cursor-pointer"
                         onChange={(e) => {
                           const rId = e.target.value;
                           if(rId) assignRider(delivery._id, rId);

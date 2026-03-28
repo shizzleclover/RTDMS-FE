@@ -41,7 +41,7 @@ export default function CustomerDash() {
                <List size={24} />
              </Button>
              <div className="flex items-center gap-2 font-bold text-lg tracking-tight">
-               <div className="bg-sky-500 text-white rounded-md p-1">
+               <div className="bg-emerald-600 text-white rounded-md p-1">
                  <Package size={18} weight="fill" />
                </div>
                RTDMS
@@ -74,7 +74,7 @@ export default function CustomerDash() {
              
              <div className="h-16 flex items-center px-5 border-b border-slate-200">
                <div className="flex items-center gap-2.5 font-bold text-[17px] tracking-tight text-slate-900">
-                 <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm"><Package size={18} weight="bold" /></div>
+                 <div className="bg-emerald-600 text-white rounded-md p-1.5 shadow-sm"><Package size={18} weight="bold" /></div>
                  Farmer Portal
                </div>
              </div>
@@ -110,7 +110,7 @@ export default function CustomerDash() {
             <p className="text-sm text-slate-500 mt-1">Track and manage your upcoming and past packages.</p>
           </div>
           <Link to="/track">
-             <Button className="h-10 px-4 rounded-lg bg-sky-600 hover:bg-sky-700 text-white shadow-sm font-medium text-sm flex items-center gap-2 transition-colors">
+             <Button className="h-10 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm font-medium text-sm flex items-center gap-2 transition-colors">
                <MagnifyingGlass size={16} weight="bold" /> Track Open ID
              </Button>
           </Link>
@@ -118,7 +118,7 @@ export default function CustomerDash() {
 
         {loading ? (
              <div className="flex justify-center items-center h-64">
-               <div className="w-8 h-8 border-2 border-sky-600 border-t-transparent rounded-full animate-spin"></div>
+               <div className="w-8 h-8 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
              </div>
         ) : deliveries.length === 0 ? (
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-12 py-16 text-center flex flex-col items-center">
@@ -160,8 +160,8 @@ export default function CustomerDash() {
                       <p className="font-medium text-sm text-slate-800 leading-snug">{delivery.pickupLocation?.address || delivery.pickupAddress || 'Unknown Origin'}</p>
                     </div>
                     <div className="relative pl-7">
-                      <div className="absolute left-[3px] top-1.5 w-2 h-2 rounded-full bg-sky-500 shadow-sm shadow-sky-500/20"></div>
-                      <p className="text-[11px] font-semibold text-sky-600 uppercase tracking-widest mb-0.5">Destination</p>
+                      <div className="absolute left-[3px] top-1.5 w-2 h-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20"></div>
+                      <p className="text-[11px] font-semibold text-emerald-600 uppercase tracking-widest mb-0.5">Destination</p>
                       <p className="font-semibold text-base text-slate-900 leading-snug">{delivery.dropoffLocation?.address || delivery.deliveryAddress || 'Unknown Destination'}</p>
                     </div>
                  </div>

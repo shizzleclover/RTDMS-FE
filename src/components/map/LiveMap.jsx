@@ -22,7 +22,7 @@ export default function LiveMap() {
            mapData[d._id] = {
              lat: d.currentLocation.coordinates[1],
              lng: d.currentLocation.coordinates[0],
-             riderName: d.rider?.name || 'Rider',
+             riderName: d.rider?.name || 'Agent',
              trackingId: d.trackingId
            };
         });
@@ -69,7 +69,7 @@ export default function LiveMap() {
           <Marker key={deliveryId} position={[data.lat, data.lng]}>
             <Popup>
               <div className="font-sans font-bold text-sm">
-                <p className="text-primary tracking-wide text-xs mb-1">RIDER</p>
+                <p className="text-primary tracking-wide text-xs mb-1">AGENT</p>
                 <p>{data.riderName}</p>
                 <p className="text-xs text-muted-foreground font-medium mt-1">ID: {data.trackingId}</p>
               </div>

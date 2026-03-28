@@ -48,7 +48,7 @@ export default function Login() {
         <div className="w-full max-w-md mx-auto">
           {/* Logo */}
           <Link to="/" className="inline-flex items-center gap-2 mb-12 group hover:opacity-80 transition-opacity">
-            <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm">
+            <div className="bg-emerald-600 text-white rounded-md p-1.5 shadow-sm">
               <Package size={20} weight="bold" />
             </div>
             <span className="text-lg font-bold tracking-tight text-slate-900">RTDMS</span>
@@ -67,7 +67,7 @@ export default function Login() {
                 value={email} 
                 onChange={e => setEmail(e.target.value)} 
                 required 
-                className="h-11 border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 shadow-sm rounded-lg"
+                className="h-11 border-slate-200 focus:border-emerald-600 focus:ring-emerald-600/20 shadow-sm rounded-lg"
                 placeholder="developer@rtdms.com"
               />
             </div>
@@ -80,7 +80,7 @@ export default function Login() {
                 value={password} 
                 onChange={e => setPassword(e.target.value)} 
                 required 
-                className="h-11 border-slate-200 focus:border-sky-500 focus:ring-sky-500/20 shadow-sm rounded-lg" 
+                className="h-11 border-slate-200 focus:border-emerald-600 focus:ring-emerald-600/20 shadow-sm rounded-lg" 
                 placeholder="••••••••"
               />
             </div>
@@ -113,7 +113,7 @@ export default function Login() {
 
           <p className="mt-8 text-center text-sm text-slate-500 font-medium">
             Don't have an account?{' '}
-            <Link to="/register" className="text-sky-600 hover:text-sky-700 font-semibold group flex items-center justify-center gap-1 mt-1">
+            <Link to="/register" className="text-emerald-600 hover:text-emerald-700 font-semibold group flex items-center justify-center gap-1 mt-1">
               Create one now <CaretRight size={12} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
             </Link>
           </p>
@@ -129,7 +129,7 @@ export default function Login() {
         <div className="relative z-10 w-full max-w-lg p-12 bg-white rounded-2xl shadow-xl border border-slate-200 flex flex-col gap-6 transform -rotate-2 hover:rotate-0 transition-transform duration-700 cursor-default">
            
            <div className="flex items-center gap-4 border-b border-slate-100 pb-6">
-              <div className="h-12 w-12 bg-sky-50 text-sky-600 rounded-lg flex items-center justify-center border border-sky-100">
+              <div className="h-12 w-12 bg-emerald-50 text-emerald-600 rounded-lg flex items-center justify-center border border-emerald-100">
                 <ShieldCheck size={28} weight="fill" />
               </div>
               <div>

@@ -27,7 +27,7 @@ export default function AdminLayout() {
       <aside className="w-64 bg-white border-r border-slate-200 flex flex-col z-20 hidden lg:flex">
         <div className="h-16 flex items-center px-6 border-b border-slate-200">
           <div className="flex items-center gap-2.5 font-bold text-[17px] tracking-tight text-slate-900">
-            <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm">
+            <div className="bg-emerald-600 text-white rounded-md p-1.5 shadow-sm">
               <Package size={18} weight="bold" />
             </div>
             RTDMS
@@ -90,7 +90,7 @@ export default function AdminLayout() {
              
              <div className="h-16 flex items-center px-6 border-b border-slate-200">
                <div className="flex items-center gap-2.5 font-bold text-[17px] tracking-tight text-slate-900">
-                 <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm">
+                 <div className="bg-emerald-600 text-white rounded-md p-1.5 shadow-sm">
                    <Package size={18} weight="bold" />
                  </div>
                  RTDMS
@@ -147,7 +147,7 @@ export default function AdminLayout() {
                <List size={24} />
              </Button>
              <div className="flex items-center gap-2 text-slate-900 font-bold text-[17px]">
-               <div className="h-7 w-7 bg-sky-500 text-white rounded flex items-center justify-center shadow-sm">
+               <div className="h-7 w-7 bg-emerald-600 text-white rounded flex items-center justify-center shadow-sm">
                  <Package size={15} weight="bold" />
                </div>
                RTDMS

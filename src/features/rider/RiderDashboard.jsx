@@ -83,7 +83,7 @@ export default function RiderDashboard() {
       <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
          <div className="max-w-xl mx-auto px-4 h-16 flex items-center justify-between">
            <div className="flex items-center gap-2 font-bold text-lg tracking-tight">
-             <div className="bg-sky-500 text-white rounded-md p-1">
+             <div className="bg-emerald-600 text-white rounded-md p-1">
                <Package size={18} weight="fill" />
              </div>
              RTDMS Agent
@@ -110,7 +110,7 @@ export default function RiderDashboard() {
              
              <div className="h-16 flex items-center px-5 border-b border-slate-200">
                <div className="flex items-center gap-2.5 font-bold text-[17px] tracking-tight text-slate-900">
-                 <div className="bg-sky-500 text-white rounded-md p-1.5 shadow-sm"><Package size={18} weight="bold" /></div>
+                 <div className="bg-emerald-600 text-white rounded-md p-1.5 shadow-sm"><Package size={18} weight="bold" /></div>
                  Agent Portal
                </div>
              </div>
@@ -237,8 +237,8 @@ export default function RiderDashboard() {
                      </div>
                      
                      <div className="relative">
-                       <div className="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-sky-500 shadow-sm shadow-sky-500/20 z-10"></div>
-                       <p className="text-[11px] font-semibold text-sky-600 uppercase tracking-widest mb-0.5">Dropoff Target</p>
+                       <div className="absolute -left-[25px] top-1.5 w-2 h-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20 z-10"></div>
+                       <p className="text-[11px] font-semibold text-emerald-600 uppercase tracking-widest mb-0.5">Dropoff Target</p>
                        <p className="font-bold text-xl text-slate-900 leading-snug">{task.dropoffLocation?.address || task.deliveryAddress || 'Unknown Destination'}</p>
                      </div>
                   </div>
@@ -248,7 +248,7 @@ export default function RiderDashboard() {
                   {task.status === 'picked_up' && (
                     <Button 
                       onClick={() => updateStatus('in_transit')}
-                      className="w-full h-12 rounded-lg font-semibold bg-sky-600 hover:bg-sky-700 text-white shadow-sm transition-colors text-sm"
+                      className="w-full h-12 rounded-lg font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-colors text-sm"
                     >
                       Confirm Pickup / Start Route
                     </Button>

@@ -88,7 +88,7 @@ export default function TrackDelivery() {
        <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
            <Link to="/" className="flex items-center gap-2 font-bold text-lg tracking-tight">
-             <div className="bg-sky-500 text-white rounded-md p-1">
+             <div className="bg-emerald-600 text-white rounded-md p-1">
                <Package size={18} weight="fill" />
              </div>
              RTDMS Tracker
@@ -110,7 +110,7 @@ export default function TrackDelivery() {
              <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Track Produce</h1>
              <p className="text-base text-slate-500">Enter your tracking ID for live status and location data.</p>
              
-             <div className="flex bg-white rounded-lg shadow-sm border border-slate-200 mt-6 h-12 overflow-hidden focus-within:ring-2 focus-within:ring-sky-500/20 focus-within:border-sky-500 transition-shadow">
+             <div className="flex bg-white rounded-lg shadow-sm border border-slate-200 mt-6 h-12 overflow-hidden focus-within:ring-2 focus-within:ring-emerald-600/20 focus-within:border-emerald-600 transition-shadow">
                <div className="flex-1 flex items-center pl-4 bg-transparent">
                  <Input 
                    placeholder="e.g. TRK-ABC123XYZ" 
@@ -120,7 +120,7 @@ export default function TrackDelivery() {
                    onKeyDown={(e) => e.key === 'Enter' && handleTrack()}
                  />
                </div>
-               <Button onClick={() => handleTrack()} disabled={loading} className="h-full px-6 rounded-none bg-sky-600 hover:bg-sky-700 text-white font-medium text-sm transition-colors border-l border-sky-700/50">
+               <Button onClick={() => handleTrack()} disabled={loading} className="h-full px-6 rounded-none bg-emerald-600 hover:bg-emerald-700 text-white font-medium text-sm transition-colors border-l border-emerald-700/50">
                  {loading ? <span className="animate-pulse">Locating...</span> : (
                    <span className="flex items-center gap-2">Track <ArrowRight size={16} weight="bold" /></span>
                  )}
@@ -130,7 +130,7 @@ export default function TrackDelivery() {
            </div>
 
            {delivery && (
-             <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mt-8 flex flex-col border-t-4 border-t-sky-500">
+             <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden mt-8 flex flex-col border-t-4 border-t-emerald-600">
                <div className="grid grid-cols-1 lg:grid-cols-12 relative">
                  
                  {/* Details Pane */}
@@ -163,8 +163,8 @@ export default function TrackDelivery() {
                           <p className="font-semibold text-sm text-slate-700 leading-snug">{delivery.pickupLocation.address}</p>
                         </div>
                         <div className="relative pl-7">
-                          <div className="absolute left-[3px] top-1.5 w-2 h-2 rounded-full bg-sky-500 shadow-sm shadow-sky-500/20"></div>
-                          <p className="text-[11px] font-semibold text-sky-600 uppercase tracking-widest mb-1">Destination</p>
+                          <div className="absolute left-[3px] top-1.5 w-2 h-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/20"></div>
+                          <p className="text-[11px] font-semibold text-emerald-600 uppercase tracking-widest mb-1">Destination</p>
                           <p className="font-bold text-base text-slate-900 leading-snug">{delivery.dropoffLocation.address}</p>
                         </div>
                      </div>
@@ -195,7 +195,7 @@ export default function TrackDelivery() {
                         <Marker position={mapCenter}>
                           <Popup>
                             <div className="font-sans text-center">
-                              <p className="text-sky-600 text-[10px] font-bold tracking-widest mb-0.5 uppercase">Live Position</p>
+                              <p className="text-emerald-600 text-[10px] font-bold tracking-widest mb-0.5 uppercase">Live Position</p>
                               <p className="text-slate-900 font-semibold text-sm">{delivery.status === 'delivered' ? 'Dropped Off' : 'In Transit'}</p>
                             </div>
                           </Popup>

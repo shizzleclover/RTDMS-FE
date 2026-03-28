@@ -15,7 +15,7 @@ export default function ManageRiders() {
 
   if (loading) return (
     <div className="flex items-center justify-center p-12">
-      <div className="w-8 h-8 border-2 border-sky-600 border-t-transparent rounded-full animate-spin"></div>
+      <div className="w-8 h-8 border-2 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
     </div>
   );
 
@@ -32,7 +32,7 @@ export default function ManageRiders() {
          {riders.map(r => (
            <div key={r._id} className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex flex-col hover:border-slate-300 transition-colors">
               <div className="flex justify-between items-start mb-4">
-                <div className="h-12 w-12 bg-sky-50 border border-sky-100/50 text-sky-600 rounded-lg flex items-center justify-center">
+                <div className="h-12 w-12 bg-emerald-50 border border-emerald-100/50 text-emerald-600 rounded-lg flex items-center justify-center">
                    <Moped size={24} weight="duotone" />
                 </div>
                 <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 border border-emerald-100/50">

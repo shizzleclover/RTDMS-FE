@@ -40,7 +40,7 @@ export default function Dashboard() {
   }, [socket]);
 
   const statCards = [
-    { title: 'Total Deliveries', value: stats.total, icon: <Package size={24} weight="duotone" className="text-sky-600" />, iconBg: 'bg-sky-50' },
+    { title: 'Total Deliveries', value: stats.total, icon: <Package size={24} weight="duotone" className="text-emerald-600" />, iconBg: 'bg-emerald-50' },
     { title: 'Pending Assignment', value: stats.pending, icon: <Clock size={24} weight="duotone" className="text-amber-600" />, iconBg: 'bg-amber-50' },
     { title: 'In Transit', value: stats.inTransit, icon: <Truck size={24} weight="duotone" className="text-indigo-600" />, iconBg: 'bg-indigo-50' },
     { title: 'Successfully Delivered', value: stats.delivered, icon: <CheckCircle size={24} weight="duotone" className="text-emerald-600" />, iconBg: 'bg-emerald-50' },
@@ -72,7 +72,7 @@ export default function Dashboard() {
            <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
              <div className="px-6 py-4 border-b border-slate-200 flex justify-between items-center bg-slate-50/50">
                <h3 className="text-base font-semibold text-slate-900">Recent Deliveries</h3>
-               <Link to="/admin/deliveries" className="text-sm font-medium text-sky-600 hover:text-sky-700 flex items-center gap-1 transition-colors">
+               <Link to="/admin/deliveries" className="text-sm font-medium text-emerald-600 hover:text-emerald-700 flex items-center gap-1 transition-colors">
                  View all <ArrowRight size={14} weight="bold" />
                </Link>
              </div>
@@ -118,7 +118,7 @@ export default function Dashboard() {
                 {/* Minimal abstract map representation */}
                 <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, #94a3b8 1px, transparent 0)', backgroundSize: '16px 16px' }}></div>
                 
-                <div className="h-16 w-16 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center justify-center mb-5 relative z-10 text-sky-600 transition-transform group-hover:-translate-y-1">
+                <div className="h-16 w-16 bg-white border border-slate-200 rounded-2xl shadow-sm flex items-center justify-center mb-5 relative z-10 text-emerald-600 transition-transform group-hover:-translate-y-1">
                   <MapTrifold size={28} weight="duotone" />
                 </div>
                 <h4 className="text-base font-semibold text-slate-900 relative z-10">Live Global Map</h4>
